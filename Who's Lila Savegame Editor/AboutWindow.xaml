@@ -1,0 +1,56 @@
+﻿<!--                                                                                      -->
+<!--   AboutWindow.xaml   -  This file is part of whos-lila-savegame-editor               -->
+<!--                                                                                      -->
+<!--   Copyright (C) 2023 Imanol-Mikel Barba Sabariego                                    -->
+<!--                                                                                      -->
+<!--   whos-lila-savegame-editor is free software: you can redistribute it and/or modify  -->
+<!--   it under the terms of the GNU General Public License as published by the Free      -->
+<!--   Software Foundation, either version 3 of the License, or (at your option) any      -->
+<!--   later version.                                                                     -->
+<!--                                                                                      -->
+<!--   whos-lila-savegame-editor is distributed in the hope that it will be useful, but   -->
+<!--   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or      -->
+<!--   FITNESS FOR A PARTICULAR  PURPOSE. See the GNU General Public License for more     -->
+<!--   details.                                                                           -->
+<!--                                                                                      -->
+<!--   You should have received a copy of the GNU General Public License along with this  -->
+<!--   program. If not, see http://www.gnu.org/licenses/.                                 -->
+<!--                                                                                      -->
+
+<Window Name="AboutWindow1" x:Class="Who_s_Lila_Savegame_Editor.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Who_s_Lila_Savegame_Editor"
+    mc:Ignorable="d"
+    Title="About"  Height="220" Width="500" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Logo" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="img\WhosLila_103.ico"/>
+        <TextBlock Grid.Column="2" x:Name="AboutTitle" Margin="0,10,0,0" TextWrapping="Wrap" Text="Who's Lila Savegame Editor" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <RichTextBox Grid.Column="2" x:Name="AboutText" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0,0,0,0" IsUndoEnabled="False" IsReadOnly="True" IsDocumentEnabled="True">
+            <FlowDocument>
+                <Paragraph>
+                    This is a save editor for the persistent save data (endings, events, palettes, etc.) NOT for the story save points
+                </Paragraph>
+                <Paragraph>
+                    Licensed under
+                    <Hyperlink NavigateUri="https://www.gnu.org/licenses/gpl-3.0.txt" Click="Hyperlink_Click">
+                        GPL-3
+                    </Hyperlink>
+                </Paragraph>
+                <Paragraph>
+                    <Hyperlink Click="Hyperlink_Click">
+                        https://github.com/ImanolBarba/whos-lila-savegame-editor
+                    </Hyperlink>
+                </Paragraph>
+
+            </FlowDocument>
+        </RichTextBox>
+        <Button x:Name="OKButton" Grid.Column="2" Width="30" Content="OK" Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="CloseDialog"/>
+    </Grid>
+</Window>

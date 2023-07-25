@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Who_s_Lila_Savegame_Editor</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>img\WhosLila_103.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="img\WhosLila_103.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="img\WhosLila_103.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PixiEditor.ColorPicker" Version="3.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MyAssembly">
+      <HintPath>D:\Program Files (x86)\SteamLibrary\steamapps\common\Who's Lila\WhosLila_Data\Managed\MyAssembly.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\Program Files (x86)\SteamLibrary\steamapps\common\Who's Lila\WhosLila_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\WhosLila_103.ico" />
+  </ItemGroup>
+
+</Project>

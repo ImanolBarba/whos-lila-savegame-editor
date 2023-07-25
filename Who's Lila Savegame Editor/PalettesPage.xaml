@@ -1,0 +1,106 @@
+﻿<!--                                                                                      -->
+<!--   PalettesPage.xaml   -  This file is part of whos-lila-savegame-editor              -->
+<!--                                                                                      -->
+<!--   Copyright (C) 2023 Imanol-Mikel Barba Sabariego                                    -->
+<!--                                                                                      -->
+<!--   whos-lila-savegame-editor is free software: you can redistribute it and/or modify  -->
+<!--   it under the terms of the GNU General Public License as published by the Free      -->
+<!--   Software Foundation, either version 3 of the License, or (at your option) any      -->
+<!--   later version.                                                                     -->
+<!--                                                                                      -->
+<!--   whos-lila-savegame-editor is distributed in the hope that it will be useful, but   -->
+<!--   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or      -->
+<!--   FITNESS FOR A PARTICULAR  PURPOSE. See the GNU General Public License for more     -->
+<!--   details.                                                                           -->
+<!--                                                                                      -->
+<!--   You should have received a copy of the GNU General Public License along with this  -->
+<!--   program. If not, see http://www.gnu.org/licenses/.                                 -->
+<!--                                                                                      -->
+    
+<UserControl x:Class="Who_s_Lila_Savegame_Editor.PalettesPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Who_s_Lila_Savegame_Editor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <TextBlock Text="Unlocked palettes" Margin="0,5,0,5" DockPanel.Dock="Top" FontWeight="Bold"/>
+        <ListView VerticalAlignment="Stretch" Name="paletteList" DockPanel.Dock="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Palette Name" DisplayMemberBinding="{Binding Name}" Width="auto"/>
+                    <GridViewColumn Header="Colours">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="20" Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Light}"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="20" Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Dark}"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Obtained">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Margin="5, 0" IsChecked="{Binding IsObtained}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Text="Custom palettes" Margin="0,5,0,5" DockPanel.Dock="Top" FontWeight="Bold"/>
+        <ListView VerticalAlignment="Stretch" Name="extraPaletteList" DockPanel.Dock="Top">
+            <ListView.Resources>
+                <ContextMenu x:Key="ItemContextMenu">
+                    <MenuItem Header="_Edit Palette" Click="EditCustomPalette"/>
+                    <MenuItem Header="_Remove Palette" Click="RemoveCustomPalette"/>
+                </ContextMenu>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="_Add Palette" Click="AddCustomPalette"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Palette Name" DisplayMemberBinding="{Binding Name}" Width="{Binding Path=ActualWidth}"/>
+                    <GridViewColumn Header="Colours" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="20" Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Light}"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="20" Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="{Binding Dark}"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+    
+</UserControl>
