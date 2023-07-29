@@ -18,6 +18,7 @@
  *                                                                                      *
  ****************************************************************************************/
 
+using System;
 using System.Windows;
 
 namespace Who_s_Lila_Savegame_Editor
@@ -25,7 +26,23 @@ namespace Who_s_Lila_Savegame_Editor
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
+        [STAThread]
+        public static void Main()
+        {
+            try
+            {
+                Who_s_Lila_Savegame_Editor.App app = new Who_s_Lila_Savegame_Editor.App();
+                app.InitializeComponent();
+                app.Run();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to start application: " + ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw;
+            }
+
+        }
     }
 }
