@@ -39,7 +39,7 @@ namespace Who_s_Lila_Savegame_Editor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to start application: " + ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Application error: " + ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 throw;
             }
 
